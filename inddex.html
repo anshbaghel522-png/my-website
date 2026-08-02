@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Friendship Day ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff5f6d,#ffc371,#7f7fd5,#86a8e7);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.card{
+
+position:relative;
+width:420px;
+padding:35px;
+border-radius:25px;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(15px);
+
+box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+text-align:center;
+
+color:#fff;
+
+overflow:hidden;
+
+}
+
+.card h1{
+
+font-size:35px;
+
+margin-bottom:15px;
+
+}
+
+.card p{
+
+font-size:18px;
+
+line-height:1.8;
+
+margin-bottom:25px;
+
+}
+
+button{
+
+padding:15px 35px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+background:#fff;
+
+color:#ff0066;
+
+font-weight:bold;
+
+transition:.4s;
+
+}
+
+button:hover{
+
+transform:scale(1.1);
+
+box-shadow:0 0 30px white;
+
+}
+
+.friend{
+
+display:none;
+
+margin-top:25px;
+
+width:250px;
+
+height:250px;
+
+border-radius:20px;
+
+object-fit:cover;
+
+border:6px solid white;
+
+box-shadow:0 0 30px rgba(255,255,255,.7);
+
+}
+
+.message{
+
+display:none;
+
+margin-top:20px;
+
+font-size:22px;
+
+font-weight:bold;
+
+animation:fade 2s infinite alternate;
+
+}
+
+@keyframes fade{
+
+from{opacity:.3;}
+
+to{opacity:1;}
+
+}
+
+/* Floating Hearts */
+
+.hearts{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+left:0;
+
+top:0;
+
+overflow:hidden;
+
+pointer-events:none;
+
+}
+
+.hearts span{
+
+position:absolute;
+
+bottom:-50px;
+
+color:#fff;
+
+font-size:25px;
+
+animation:heart 10s linear infinite;
+
+opacity:.8;
+
+}
+
+@keyframes heart{
+
+0%{
+
+transform:translateY(0) scale(0);
+
+opacity:0;
+
+}
+
+30%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-900px) scale(1.8);
+
+opacity:0;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="hearts" id="hearts"></div>
+
+<h1>💖 Happy Friendship Day 💖</h1>
+
+<p>
+
+"Every smile, every laugh, every memory we created  together 
+has a special place in my heart.
+This website is dedicated to those beautiful moments."
+     MR.Aryan chauhan
+❤️🤝❤️
+
+</p>
+
+<button onclick="showSurprise()">
+
+🎁 Click For Surprise
+
+</button>
+
+<br><br>
+
+<img
+
+class="friend" 
+
+id="friend"
+
+src="https://raw.githubusercontent.com/anshbaghel522-png/index.html/42b2a8dadcfc4a5e6983c396b9af25c081551979/2026-08-03%2000-00-04_page-0001.jpg">
+
+<div class="message" id="msg">
+
+You Are My Best Friend Forever ❤️
+
+</div>
+
+</div>
+<script>
+
+// Floating Hearts
+const hearts = document.getElementById("hearts");
+
+function createHeart(){
+
+    const heart = document.createElement("span");
+
+    heart.innerHTML = ["❤️","💖","💕","💗","💝"][Math.floor(Math.random()*5)];
+
+    heart.style.left = Math.random()*100 + "%";
+
+    heart.style.fontSize = (20 + Math.random()*25) + "px";
+
+    heart.style.animationDuration = (5 + Math.random()*5) + "s";
+
+    hearts.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },10000);
+
+}
+
+setInterval(createHeart,300);
+
+
+// Surprise Button
+function showSurprise(){
+
+    document.getElementById("friend").style.display="block";
+
+    document.getElementById("msg").style.display="block";
+
+    document.querySelector("button").innerHTML="💖 Best Friends Forever 💖";
+
+    typeMessage();
+
+}
+
+
+// Typewriter Effect
+const text="✨ Thank you for always being with me. You are my best friend forever! ❤️";
+
+let i=0;
+
+function typeMessage(){
+
+    const msg=document.getElementById("msg");
+
+    msg.innerHTML="";
+
+    i=0;
+
+    let typing=setInterval(()=>{
+
+        msg.innerHTML+=text.charAt(i);
+
+        i++;
+
+        if(i>=text.length){
+            clearInterval(typing);
+        }
+
+    },50);
+
+}
+
+
+// Background Sparkles
+for(let i=0;i<40;i++){
+
+    let star=document.createElement("div");
+
+    star.style.position="absolute";
+
+    star.style.width="4px";
+
+    star.style.height="4px";
+
+    star.style.borderRadius="50%";
+
+    star.style.background="white";
+
+    star.style.left=Math.random()*100+"%";
+
+    star.style.top=Math.random()*100+"%";
+
+    star.style.opacity=Math.random();
+
+    star.style.animation=`twinkle ${2+Math.random()*4}s infinite`;
+
+    document.body.appendChild(star);
+
+}
+
+const style=document.createElement("style");
+
+style.innerHTML=`
+@keyframes twinkle{
+0%,100%{opacity:.2;transform:scale(1);}
+50%{opacity:1;transform:scale(2);}
+}
+`;
+
+document.head.appendChild(style);
+
+</script>
+
+</body>
+</html>
